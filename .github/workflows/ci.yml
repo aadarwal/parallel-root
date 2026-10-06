@@ -32,10 +32,13 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
-      # Sets ANDROID_HOME, which both build scripts read first.
+      # Sets ANDROID_HOME, which both build scripts read first, and installs
+      # exactly the two packages they need. The action's default list also
+      # asks for the legacy `tools` package, which the SDK repository no
+      # longer carries, so leaving `packages` unset fails before any build.
       - uses: android-actions/setup-android@v3
-      - name: SDK packages
-        run: sdkmanager "build-tools;36.0.0" "platforms;android-36"
+        with:
+          packages: "build-tools;36.0.0 platforms;android-36"
       - name: Build the display holder
         run: bash android/vdisplay/build.sh
       - name: Build the bridge
