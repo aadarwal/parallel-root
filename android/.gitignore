@@ -1,0 +1,13 @@
+# What the two build.sh scripts produce. Each writes only under its own build/,
+# including the bridge's debug keystore, which must never be committed.
+build/
+
+# Keys, wherever they end up.
+*.keystore
+*.jks
+
+# Built artifacts, if one is ever copied out of build/.
+*.jar
+*.apk
+*.apk.idsig
+*.dex

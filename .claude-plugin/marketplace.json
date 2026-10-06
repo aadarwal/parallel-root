@@ -1,0 +1,17 @@
+{
+  "name": "parallel-root",
+  "owner": {
+    "name": "parallel-root contributors"
+  },
+  "metadata": {
+    "description": "Drive an Android phone with AI agents, several at once, without root.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "parallel-root",
+      "source": "./plugin",
+      "description": "Drive an Android phone through its state, intents and the screen. Several agents can work at once, each on its own trusted display. No root."
+    }
+  ]
+}

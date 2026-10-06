@@ -1,0 +1,12 @@
+{
+  "name": "parallel-root",
+  "interface": { "displayName": "parallel-root" },
+  "plugins": [
+    {
+      "name": "parallel-root",
+      "source": { "source": "local", "path": "./plugin" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

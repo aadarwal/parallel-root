@@ -1,0 +1,42 @@
+{
+  "name": "parallel-root",
+  "version": "0.1.0",
+  "description": "Drive an Android phone as an agent, without root. Read its state through structured queries, act through intents, and fall to the screen only when nothing above it will do. Several agents can work at once, each on a trusted virtual display of its own that the person holding the phone never sees. Ships two skills: phone, the method, with a dated map of a reference device; and screens, for more than one agent on one phone.",
+  "author": {
+    "name": "parallel-root contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "android",
+    "phone",
+    "termux",
+    "shizuku",
+    "adb",
+    "uiautomator",
+    "device-control",
+    "intents",
+    "deeplinks",
+    "multi-display",
+    "virtual-display",
+    "parallel-agents",
+    "no-root"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "parallel-root",
+    "shortDescription": "Drive an Android phone, several agents at once, without root",
+    "longDescription": "Use a real Android phone the way a careful person would. Ask the device what it can do, read its state (notifications, media, calendar, contacts, battery) through structured queries, act through intents, and fall to the screen only when nothing above it will do, then verify by reading state back instead of trusting an exit code. Several agents can work at once, each on a trusted virtual display of its own that the person holding the phone never sees, kept apart by per-display leases and a one-app-one-display guard. Shell-uid access comes from Shizuku: no root and no unlocked bootloader. Ships two skills for the phone CLI: phone, the method, and screens, for more than one agent on one phone.",
+    "developerName": "parallel-root contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "What is playing on my phone right now?",
+      "Summarise today's notifications on my phone",
+      "Open the calculator on a display of your own and work out 17 × 23"
+    ]
+  }
+}

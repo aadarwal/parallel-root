@@ -1,0 +1,27 @@
+# Build outputs
+build/
+*.apk
+*.dex
+*.jar
+*.idsig
+
+# Signing material: generated per machine, never committed
+*.keystore
+*.jks
+
+# Python
+__pycache__/
+*.pyc
+
+# Output that can carry a real phone's content
+screen.png
+photo.jpg
+*.jsonl
+
+# OS and editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

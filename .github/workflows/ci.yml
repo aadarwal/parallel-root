@@ -1,0 +1,55 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: tests (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Off-device suites
+        run: bash tests/run-all.sh
+
+  android:
+    name: android (jar + apk)
+    runs-on: ubuntu-latest
+    env:
+      ANDROID_API: "36"
+    steps:
+      - uses: actions/checkout@v4
+      # Any JDK from 11 up builds both pieces; keytool comes with it.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      # Sets ANDROID_HOME, which both build scripts read first.
+      - uses: android-actions/setup-android@v3
+      - name: SDK packages
+        run: sdkmanager "build-tools;36.0.0" "platforms;android-36"
+      - name: Build the display holder
+        run: bash android/vdisplay/build.sh
+      - name: Build the bridge
+        run: bash android/bridge/build.sh
+      # The named outputs only: build/ also holds intermediates (classes.jar,
+      # the .idsig apksigner writes) that are not artifacts. Each run signs
+      # the APK with a key of its own.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vdisplay-jar
+          path: android/vdisplay/build/parallel-root-vdisplay.jar
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bridge-apk
+          path: android/bridge/build/parallel-root-bridge.apk
+          if-no-files-found: error
