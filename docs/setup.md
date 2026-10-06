@@ -265,8 +265,9 @@ dex from `/sdcard` itself. If this machine has no SDK but one you can ssh
 to does, set `VD_BUILD_HOST=<ssh-host>` and the build runs there (the
 display holder only; the bridge builds where you run it).
 
-**Without an SDK**, download the jar from this repository's CI run (the
-`android` job's artifacts) and stage it by hand:
+**Without an SDK**, download `parallel-root-vdisplay.jar` from the latest
+GitHub release of this repository (each release carries the jar and the
+bridge APK, built by CI from the tagged commit) and stage it by hand:
 
 ```sh
 ssh my-phone 'mkdir -p /sdcard/Download && cat > /sdcard/Download/parallel-root-vdisplay.jar' \
@@ -322,7 +323,7 @@ listener:
 phone --device my-phone sh 'cmd notification allow_listener parallelroot.bridge/.Listener'
 ```
 
-**Without an SDK**, take the APK from the same CI run and do those steps by
+**Without an SDK**, take the APK from the same release and do those steps by
 hand:
 
 ```sh

@@ -232,7 +232,7 @@ docs/                     setup, architecture, displays, configuration, design
 | the bridge app | Android 12 (SDK 31) or later. Only `phone reply` needs it. |
 | phone side | Termux and Termux:API from F-Droid or GitHub releases, Shizuku, Python 3 |
 | controller | macOS or Linux with Python 3.8+ and OpenSSH |
-| building the Android pieces | a JDK (11 or later), `zip`, and the Android SDK command-line tools (build-tools 36.x, platform 36), or the CI artifacts |
+| building the Android pieces | a JDK (11 or later), `zip`, and the Android SDK command-line tools (build-tools 36.x, platform 36), or the prebuilt jar and APK attached to each release |
 
 Other phones should work. Where one differs, `phone capabilities` will show
 it before an agent assumes anything.
